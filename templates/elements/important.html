@@ -1,0 +1,16 @@
+<div class="row">
+    <div class="col-lg-4 col-md-5 col-sm-6 col-centered">
+        <div class="panel panel-danger">
+            <div class="panel-heading">
+                <!-- Icon -->
+                <i class="glyphicon glyphicon-exclamation-sign"></i>&nbsp;
+                <strong>Important</strong>
+            </div>
+                <table class="table" ng-controller="taskController as taskCtrl">
+                	<tr ng-repeat="task in taskCtrl.tasks" ng-if="task.task_en != ''">
+                    	<td>{{task.task_en }}</td><td></td>
+                    </tr>
+                </table>
+        </div> 
+    </div>
+</div>       

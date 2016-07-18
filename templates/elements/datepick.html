@@ -1,0 +1,44 @@
+<!-- Date Range Picker (DPR): This module that lets you easily input a date, or date range from into a form. http://www.daterangepicker.com/ -->
+
+<!-- Scripts needed for DPR -->
+
+<link href="/css/daterangepicker.css" rel="stylesheet" type="text/css">
+<script src="/js/services/moment.min.js" type="text/javascript"></script> 
+<script src="/js/services/daterangepicker.js" type="text/javascript"></script>
+
+<!-- Input box for DPR -->
+
+<div class="pull-right" id="reportrange" style="display:inline;">
+    <span></span> <b class="caret"></b>
+</div>
+
+<!-- Properties for DPR:
+	- Sets current date as default selection
+    - Options to automatically pick range for current week and current month
+    - Option to select custom date range
+    
+   	-->
+
+<script type="text/javascript">
+    $(function() {
+        var start = moment();
+        var end = moment();
+    
+        function cb(start, end) {
+            $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format(
+                'MMMM D, YYYY'));
+        }
+        $('#reportrange').daterangepicker({
+            startDate: start,
+            endDate: end,
+            "opens": "left",
+			"autoApply": true,
+            ranges: {
+                'Today': [moment(), moment()],
+                'This Week': [moment().startOf('week'), moment().endOf('week')],
+                'This Month': [moment().startOf('month'), moment().endOf('month')],
+            }
+        }, cb);
+        cb(start, end);
+    });
+</script>
