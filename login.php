@@ -35,11 +35,11 @@ if(isset($_POST['submit']) && isset($_POST['username']) && isset($_POST['passwor
 		$_SESSION['user_first'] = $row['user_first'];
 		
 		//Automatically direct to main site
-		header('location: index.html');
+		header('location: /');
 		}
 	else{
 		//When incorrect, they will be redirected back to the login page showing an error. Also clears the session.
-		header('location: login.php?error=invalid');
+		header('location: /login?error=invalid');
 		session_start();
 		session_unset();
 		session_destroy();

@@ -1,4 +1,7 @@
 <?PHP
+
+//Session.php helps validates the user is still logged in while browsing the site, otherwise it signs them out. This file is included to already existing PHP files and inserts a function called validate(a,b) which takes a username (a) and a password (b), then returns if that is a valid user from the database.
+
 function validate($user,$pass){
 	//Open connection to MySQL database
 	$connection = mysqli_connect("localhost","user","pass","database") or die("Error " . mysqli_error($connection));
