@@ -4,6 +4,9 @@
 //If any login credentials is received, proceed to validation
 
 if(isset($_POST['submit']) && isset($_POST['username']) && isset($_POST['password'])){
+	//Convert username to all lowercase
+	$user = strtolower($user);
+
 	//Received username and password are stored as temp variables 
 	$user = $_POST['username'];
 	$pass = $_POST['password'];

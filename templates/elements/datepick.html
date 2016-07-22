@@ -9,7 +9,11 @@
 <!-- Input box for DPR -->
 
 <div class="pull-right" id="reportrange" style="display:inline;">
+    
+    <!-- the <span> tag displays the selected date in a visually appealing format, meanwhile the <p> tag contains the date in a YYYY/MMM/DD-YYYY/MMM/DD format that can be easily read by the database.-->
+    
     <span></span> <b class="caret"></b>
+    <p id='formrange' hidden></p>
 </div>
 
 <!-- Properties for DPR:
@@ -25,8 +29,10 @@
         var end = moment();
     
         function cb(start, end) {
-            $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format(
-                'MMMM D, YYYY'));
+            $('#reportrange span').html(start.format('MMM DD') + ' - ' + end.format(
+                'MMM DD'));
+			$('#reportrange #formrange').html(start.format('YYYY-MM-DD') + '/' + end.format(
+                'YYYY-MM-DD'));
         }
         $('#reportrange').daterangepicker({
             startDate: start,
