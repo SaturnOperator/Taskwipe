@@ -1,0 +1,42 @@
+<table class="table" ng-controller="taskController">
+    <tbody class="task-tbody" ng-repeat="task in tasks" ng-if="task.task_en != ''">
+        <tr >
+            <td>
+                <span class='tasks-task' "/id/{{task.task_id}}"></span>
+                <!-- <a class='tasks-task' ng-href="/id/{{task.task_id}}"><h4><strong>{{task.task_en }}</strong></h4></a> -->
+  				<a 	class='tasks-task'
+                	href="#" 
+                	data-toggle="popover" 
+                    data-placement="bottom" 
+                    data-trigger="focus"
+                    title="
+                    	<a class='btn btn-warning' href='#'>Start</a>
+                    	<a class='btn btn-info' href='#'>Info</a>
+                        <a class='btn btn-success' href='#'>Complete</a>"
+                    data-content="
+                    	<strong>Due</strong>: {{task.task_limit}}
+                        <BR>
+                        <strong>Description</strong>: 
+                        <BR>
+                        {{task.task_description}}"
+                    >{{task.task_en}}</a>
+
+                                
+                <script>
+					$(document).ready(function(){
+						$('[data-toggle="popover"]').popover({
+							//html : true, 
+							content: function() {
+							  return $("#task-popover-content").html();
+							},
+							title: function() {
+							  return $("#task-popover-title").html();
+							}
+						});						
+					});
+                </script>
+                
+            </td>
+        </tr> 
+    </tbody>
+</table>
